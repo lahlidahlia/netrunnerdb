@@ -1328,8 +1328,6 @@ class BuilderController extends Controller
      * @param Deck $deck
      * @return Response
      *
-     * @IsGranted("IS_AUTHENTICATED_REMEMBERED")
-     *
      * @ParamConverter("deck", class="AppBundle:Deck", options={"mapping": {"deck_uuid": "uuid"}})
      */
     public function printAndPlayAction(?Deck $deck = null)
@@ -1339,13 +1337,15 @@ class BuilderController extends Controller
         $response->setMaxAge($this->getParameter('long_cache'));
 
         $decklist = "";
-        if($deck) {
+        if ($deck &&
+            ($this->getUser()->getId() == $deck->getUser()->getId() ||
+             $deck->getUser()->getShareDecks())) {
             foreach($deck->getSlots() as $slot) {
                 $decklist .= strval($slot->getQuantity()) . " " . $slot->getCard()->getTitle() . PHP_EOL;
             }
         }
-        return $this->render(
 
+        return $this->render(
             '/Builder/printandplay.html.twig',
             [
                 'pagetitle' => "Print and Play",

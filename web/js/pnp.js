@@ -20,6 +20,11 @@ var multi_side_cards = {
   "26120" : ["https://card-images.netrunnerdb.com/v2/xlarge/26120-0.webp"], // Earth Station
   "35023" : ["https://card-images.netrunnerdb.com/v2/xlarge/35023-0.webp"], // Dewi
   "35057" : ["https://card-images.netrunnerdb.com/v2/xlarge/35057-0.webp"], // Nebula
+  "36036" : ["https://card-images.netrunnerdb.com/v2/xlarge/36036.webp",  // Melies U prints 3 front and 3 back
+             "https://card-images.netrunnerdb.com/v2/xlarge/36036.webp",
+             "https://card-images.netrunnerdb.com/v2/xlarge/36036-0.webp",
+             "https://card-images.netrunnerdb.com/v2/xlarge/36036-1.webp",
+             "https://card-images.netrunnerdb.com/v2/xlarge/36036-2.webp"],
 };
 
 var basic_action_cards = [
